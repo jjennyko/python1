@@ -1,6 +1,18 @@
-#1. 
+import statsmodels.stats.proportion
+# H0: Pa = Pb
+# H1: Pa != Pb
+A = [75, 30] # 有開信的個數
+B = [300, 300] #各組實驗總個數
 
-#Answer: Mr./Ms. Right
-#2. 
+z, p = statsmodels.stats.proportion.proportions_ztest(A, B, alternative='smaller')
+print('{:.8f}'.format(p))
+A = [75, 30] # 有開信的個數
+B = [300, 300] #各組實驗總個數
 
-#Answer: 雖然可以確認某些外在變數（例：外表、年齡、財富等），但是無法確認重要的內在變數（性格、善良、溫柔、幽默等）
+z, p = statsmodels.stats.proportion.proportions_ztest(A, B, alternative='larger')
+print('{:.8f}'.format(p))
+A = [75, 30] # 有開信的個數
+B = [300, 300] #各組實驗總個數
+
+z, p = statsmodels.stats.proportion.proportions_ztest(A, B, alternative='two-sided')
+print('{:.8f}'.format(p))
